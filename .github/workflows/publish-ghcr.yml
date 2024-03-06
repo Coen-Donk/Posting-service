@@ -12,4 +12,4 @@ jobs:
         run: |
           docker login --username coen-donk --password ${{ secrets.POSTING_SERVICE_SECRET }} ghcr.io
           docker build ./. --tag ghcr.io/coen-donk/posting-service:latest
-          docker push ./. --tag ghcr.io/coen-donk/posting-service:latest
+          docker push ghcr.io/coen-donk/posting-service:latest
