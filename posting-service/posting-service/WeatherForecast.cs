@@ -1,4 +1,4 @@
-namespace Posting_service
+namespace posting_service
 {
 	public class WeatherForecast
 	{

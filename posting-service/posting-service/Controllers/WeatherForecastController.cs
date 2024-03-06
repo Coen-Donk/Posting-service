@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace Posting_service.Controllers
+namespace posting_service.Controllers
 {
 	[ApiController]
 	[Route("[controller]")]
