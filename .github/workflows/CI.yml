@@ -13,8 +13,10 @@ jobs:
         uses: actions/setup-dotnet@v3
       - name: Install dependencies
         run: dotnet restore
+        working-directory: ./posting-service-tests
       - name: Build
         run: dotnet build
+        working-directory: ./posting-service-tests
       - name: Test with the dotnet CLI
         run: dotnet test
                   
