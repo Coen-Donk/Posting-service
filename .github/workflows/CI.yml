@@ -1,4 +1,4 @@
-name: CI-posting
+name: CI
 
 on: push
 
