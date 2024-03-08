@@ -19,5 +19,6 @@ jobs:
         working-directory: ./posting-service-tests
       - name: Test with the dotnet CLI
         run: dotnet test
+        working-directory: ./posting-service-tests
                   
     
