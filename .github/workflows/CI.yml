@@ -1,33 +1,21 @@
-name: CI
+name: CI-posting
 
 on: fork
 
 jobs:
   test:
     name: Test
-    runs-on: ubuntu-latest
-    services:
-      database:
-        image: mysql:8.0
-        env:
-          MYSQL_ROOT_PASSWORD: password
-          MYSQL_DATABASE: database
-        ports:
-          - 3306:3306
+    runs-on: self-hosted
     steps:
-      - name: Setup PHP
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: '8.1'
-
-      - name: Checkout source code
-        uses: actions/checkout@v3
-
-      - name: Install dependencies with Composer
-        uses: ramsey/composer-install@v2
-
-      - name: Execute database migrations
-        run: bin/console doctrine:migrations:migrate --no-interaction
-
-      - name: Run tests
-        run: make check
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+      - name: Setup dotnet
+        uses: actions/setup-dotnet@v3
+      - name: Install dependencies
+        run: dotnet restore
+      - name: Build
+        run: dotnet build
+      - name: Test with the dotnet CLI
+        run: dotnet test
+                  
+    
