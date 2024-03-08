@@ -1,6 +1,6 @@
 name: CI-posting
 
-on: fork
+on: push
 
 jobs:
   test:
