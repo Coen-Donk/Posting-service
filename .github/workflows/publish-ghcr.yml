@@ -22,7 +22,7 @@ jobs:
           docker login --username coen-donk --password ${{ secrets.POSTING_SERVICE_SECRET }} ghcr.io
           docker build ./. --tag ghcr.io/coen-donk/posting-service:latest
           docker push ghcr.io/coen-donk/posting-service:latest
-          docker build ./. -tag ghcr.io/coen-donk/gateway:latest
+          docker build ./. --tag ghcr.io/coen-donk/gateway:latest
           docker push ./. ghcr.io/coen-donk/gateway:latest
           docker stop posting-service
           docker remove posting-service
