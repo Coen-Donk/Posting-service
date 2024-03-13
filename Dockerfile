@@ -7,14 +7,14 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["posting-service/posting-service/posting-service.csproj", "posting-service/"]
+COPY ["Posting-service/posting-service/posting-service.csproj", "posting-service/"]
 RUN dotnet restore "posting-service/posting-service.csproj"
 COPY . .
+RUN dotnet build "Posting-service/posting-service/posting-service.csproj" -c Release -o /app/build
 WORKDIR "/src/posting-service"
-RUN dotnet build "posting-service/posting-service.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "posting-service/posting-service.csproj" -c Release -o /app/publish
+RUN dotnet publish "Posting-service/posting-service/posting-service.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
