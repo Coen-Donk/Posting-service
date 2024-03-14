@@ -3,7 +3,7 @@ name: Docker CD
 on:
   pull_request:
     types: 
-      - "closed"
+      - closed
     branches:
       - "Main"
   
