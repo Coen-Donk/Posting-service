@@ -20,5 +20,38 @@ jobs:
       - name: Test with the dotnet CLI
         run: dotnet test
         working-directory: ./posting-service-tests
+
+      - uses: actions/checkout@v3
+      - uses: jitterbit/get-changed-files@v1
+        id: abc
+        with:
+          format: space-delimited
+      - name: Printing
+        run: |
+          echo "All:"
+          echo "${{ steps.abc.outputs.all }}"
+          echo "Added:"
+          echo "${{ steps.abc.outputs.added }}"
+          echo "Removed:"
+          echo "${{ steps.abc.outputs.removed }}"
+          echo "Renamed:"
+          echo "${{ steps.abc.outputs.renamed }}"
+          echo "Modified:"
+          echo "${{ steps.abc.outputs.modified }}"
+          echo "Added+Modified:"
+          echo "${{ steps.abc.outputs.added_modified }}"
+
+      - uses: actions/checkout@v3
+      - uses: jitterbit/get-changed-files@v1
+        id: ab
+        with:
+          format: space-delimited
+      - name: Check for changes in .gateway folder
+        if: contains(steps.changed_files.outputs.modified, '.gateway/')
+        run: | 
+          echo "I found a change inside the .gateway folder"
+        
+        
+          
                   
     
