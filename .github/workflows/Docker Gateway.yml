@@ -23,11 +23,11 @@ jobs:
       - name: Build and push the image
         run: |
           docker login --username coen-donk --password ${{ secrets.POSTING_SERVICE_SECRET }} ghcr.io
-          docker build ./. -tag ghcr.io/coen-donk/gateway:latest
-          docker push ./. ghcr.io/coen-donk/gateway:latest
+          docker build -t gateway -f dockerfileyarp .
+          docker push . ghcr.io/coen-donk/gateway:latest
           
           docker stop gateway
           docker remove gateway
-          docker run -d --name gateway -p 5001:80 --network proxynetwork ghcr.io/coen-donk/gateway:latest
+          docker run -d --name gateway -p 5001:80 --network proxynetwork gateway
           
           
