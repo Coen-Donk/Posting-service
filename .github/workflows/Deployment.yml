@@ -2,14 +2,11 @@ name: Docker CD
 
 on:
   pull_request:
-    types: 
-      - closed
     branches:
-      - "Main"
+      - Main
   
 jobs:
   Build_and_deploy:
-    if: github.event.pull_request.merged == true
     runs-on: self-hosted
     steps:  
       - uses: actions/checkout@v3
