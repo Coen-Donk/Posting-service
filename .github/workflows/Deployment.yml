@@ -1,10 +1,9 @@
 name: Docker CD
 
 on:
-  workflow_run:
-    workflows: CI
-    types:
-      - completed
+  push:
+    branches:
+      - "Main"
   
 jobs:
   build_and_publish:
