@@ -1,20 +1,17 @@
 name: Docker CD
 
 on:
-  push:
+  pull_request:
+    types: 
+      - "closed"
     branches:
       - "Main"
   
 jobs:
-  build_and_publish:
+  Build_and_deploy:
+    if: github.event.pull_request.merged == true
     runs-on: self-hosted
-    steps:
-      # - uses: actions/checkout@v3
-      # - name: get container status
-      #   run: |
-      #     if docker ps | grep -q "posting-service"; then
-      #       echo "Container is already running"
-            
+    steps:  
       - uses: actions/checkout@v3
       - uses: jitterbit/get-changed-files@v1
         id: posting
