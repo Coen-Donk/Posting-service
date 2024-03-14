@@ -7,6 +7,7 @@ builder.Services.AddCors(options =>
 					  .AllowAnyMethod()
 					  .AllowAnyHeader());
 });
+
 // Add services to the container.
 builder.Services.AddControllers();
 
