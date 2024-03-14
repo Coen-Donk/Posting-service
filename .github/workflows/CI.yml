@@ -47,7 +47,7 @@ jobs:
         with:
           format: space-delimited
       - name: Check for changes in .gateway folder
-        if: contains(steps.changed_files.outputs.modified, '.gateway/')
+        if: contains(steps.changed_files.outputs.modified, 'Gateway/')
         run: | 
           echo "I found a change inside the .gateway folder"
         
