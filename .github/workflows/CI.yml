@@ -46,11 +46,10 @@ jobs:
         id: ab
         with:
           format: space-delimited
-      - name: Printing
-        if: |
-          contains(${{ steps.ab.outputs.modified }}, '.gateway/')
+      - name: Check for changes in .gateway folder
+        if: contains(steps.changed_files.outputs.modified, '.gateway/')
         run: | 
-          echo "I found a change inside the ./gateway folder".
+          echo "I found a change inside the .gateway folder"
         
         
           
