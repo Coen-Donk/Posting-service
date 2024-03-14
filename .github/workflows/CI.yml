@@ -40,5 +40,19 @@ jobs:
           echo "${{ steps.abc.outputs.modified }}"
           echo "Added+Modified:"
           echo "${{ steps.abc.outputs.added_modified }}"
+
+      - uses: actions/checkout@v3
+      - uses: jitterbit/get-changed-files@v1
+        id: ab
+        with:
+          format: space-delimited
+      - name: Printing
+        if: |
+          contains(${{ steps.ab.outputs.modified }}, '.gateway/')
+        run: | 
+          echo "I found a change inside the ./gateway folder".
+        
+        
+          
                   
     
