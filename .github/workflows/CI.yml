@@ -27,7 +27,7 @@ jobs:
         with:
           format: space-delimited
       - name: Printing
-        if: contains(steps.changed_files.outputs.modified, 'Gateway')
+        if: contains(steps.abc.outputs.modified, 'Gateway')
         run: |
           echo "All:"
           echo "${{ steps.abc.outputs.all }}"
