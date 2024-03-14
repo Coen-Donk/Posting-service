@@ -3,7 +3,7 @@ name: Docker CD
 on:
   pull_request:
     branches:
-      - Main
+      - main
   
 jobs:
   Build_and_deploy:
